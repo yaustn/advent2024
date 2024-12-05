@@ -1,13 +1,7 @@
-import requests
-def fetch_data(url):
-    try:
-        cookies = {'session': '53616c7465645f5f3abcecd02b256b55b5cc0b577298680680fc7979923881e831a1765c2d92d5c2c0096abcc2b25fa71cac6e55c41bf593d59be13bbdeadfed'}
-        response = requests.get(url, cookies=cookies)
-        response.raise_for_status()  # Raises an exception for bad status codes
-        return response.text  # or response.json() for JSON data
-    except requests.RequestException as e:
-        print(f"Error fetching data: {e}")
-        return None
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from data import fetch_data
         
 def is_safe(nums):
     increasing = False
